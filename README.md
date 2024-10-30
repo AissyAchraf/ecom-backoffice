@@ -84,11 +84,11 @@ keycloak.realm=ecom-realm
 keycloak.resource=ecom-client
 ```
 
-🔄 API Endpoints
+## 🔄 API Endpoints
 - Products
   - GET /api/products – Get all products.
   - POST /api/products/create – Add a new product.
 
-📝 Contact
+## 📝 Contact
 For questions or support, contact:
 📧 achrafaissy1@gmail.com
