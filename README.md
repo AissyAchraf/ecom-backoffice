@@ -11,7 +11,7 @@ This project is a backoffice system for e-commerce designed to handle essential 
 - CRUD operations for customer information.
 - Track customer purchase history and preferences.
 3. Order Management
-- Process new orders and track their status (e.g., created, shipped, delivered).
+- Process new orders and track their status (e.g., pending, confirmed, canceled).
 - Manage returns, cancellations, and refunds.
 4. Authentication & Security
 - Secure login and role-based access management with Keycloak.
