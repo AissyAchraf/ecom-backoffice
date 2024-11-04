@@ -3,6 +3,8 @@
 ## 📋 Overview
 This project is a microservices-based backoffice system for e-commerce, developed primarily with Spring Boot. It features a robust architecture secured by Keycloak for authentication and authorization, with a Spring Cloud gateway for routing and Eureka for service registration and discovery. The system efficiently manages core operations such as product and inventory management, customer management, and order processing.
 
+Note: The implementation of the Spring Cloud gateway and the Eureka registry is still in progress.
+
 ## 🚀 Features
 1. Product & Inventory Management
 - Add, update, delete, and list products.
