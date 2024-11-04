@@ -20,9 +20,9 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public Product getProduct(@PathVariable String id) {
-        return productRepository.findById(id).orElse(null);
+        return productRepository.findById(id).get();
     }
 
     @PostMapping("/products/create")

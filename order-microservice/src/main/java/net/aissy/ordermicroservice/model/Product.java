@@ -1,11 +1,7 @@
-package net.aissy.inventorymicroservice.entity;
+package net.aissy.ordermicroservice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
-import org.hibernate.annotations.UuidGenerator;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,7 +10,6 @@ import org.hibernate.annotations.UuidGenerator;
 @ToString
 public class Product {
 
-    @Id
     private String id;
     private String name;
     private double price;

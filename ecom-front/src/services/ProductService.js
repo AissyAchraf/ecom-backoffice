@@ -1,6 +1,6 @@
 import HttpService from './HttpService';
 
-const axiosInstance = HttpService.getAxiosClient();
+const axiosInstance = HttpService.getInventoryClient();
 
 const ProductService = {
     getAllProducts: async () => {
@@ -35,10 +35,10 @@ const ProductService = {
 
     updateProduct: async (product) => {
         try {
-            const response = await HttpService.getAxiosClient().put(`/api/products/update/${product.id}`, product);
+            const response = await axiosInstance.put(`/api/products/update/${product.id}`, product);
             return response.data;
         } catch (error) {
-            console.error(`Error updating product with ID ${id}:`, error);
+            console.error(`Error updating product with ID ${product.id}:`, error);
             throw error;
         }
     },

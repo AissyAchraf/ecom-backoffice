@@ -17,6 +17,7 @@ import {Tooltip} from "@mui/material";
 const pages = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
+    { name: 'Orders', path: '/orders' },
     { name: 'Customers', path: '/customers' },
     { name: 'Pricing', path: '/pricing' },
 ];

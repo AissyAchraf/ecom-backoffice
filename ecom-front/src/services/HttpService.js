@@ -1,34 +1,41 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8082';
+const INVENTORY_MICROSERVICE = process.env.INVENTORY_MICROSERVICE_API_BASE_URL || 'http://localhost:8082';
+const ORDERS_MICROSERVICE = process.env.ORDERS_MICROSERVICE_API_BASE_URL || 'http://localhost:8083';
 
-const _axios = axios.create({
-    baseURL: BASE_URL,
-});
+const _axiosClients = {
+    _axiosInventoryClient : axios.create({
+        baseURL: INVENTORY_MICROSERVICE,
+    }),
+    _axiosOrderClient : axios.create({
+        baseURL: ORDERS_MICROSERVICE,
+    })
+}
 
 const configureHttpClient = (getToken, updateToken) => {
-    _axios.interceptors.request.use(async (config) => {
-        try {
-            await updateToken(() => {});
-
-            const token = getToken();
-            if (token) {
-                config.headers.Authorization = `Bearer ${token}`;
-            } else {
-                console.warn('No token available');
+    Object.values(_axiosClients).forEach(client => {
+        client.interceptors.request.use(async (config) => {
+            try {
+                await updateToken();  // Update token if needed
+                const token = getToken();
+                if (token) {
+                    config.headers.Authorization = `Bearer ${token}`;
+                } else {
+                    console.warn('No token available');
+                }
+            } catch (error) {
+                console.error('Failed to attach token:', error);
+                return Promise.reject(error);
             }
-        } catch (error) {
-            console.error('Failed to attach token:', error);
-            return Promise.reject(error);
-        }
-
-        return config;
+            return config;
+        });
     });
 };
 
 const HttpService = {
     configureHttpClient,
-    getAxiosClient: () => _axios,
+    getInventoryClient: () => _axiosClients._axiosInventoryClient,
+    getOrderClient: () => _axiosClients._axiosOrderClient,
 };
 
 export default HttpService;

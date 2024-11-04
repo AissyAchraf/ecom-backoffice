@@ -5,6 +5,7 @@ import Topbar from './components/global/topbar';
 import Products from './components/products';
 import ProtectedRoute from "./context/ProtectedRoute";
 import Unauthorized from "./components/unauthorized";
+import Orders from "./components/orders";
 
 function App() {
 
@@ -20,6 +21,14 @@ function App() {
                             element={
                                 <ProtectedRoute requiredRoles={['ADMIN']}>
                                     <Products />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/orders"
+                            element={
+                                <ProtectedRoute requiredRoles={['USER']}>
+                                    <Orders />
                                 </ProtectedRoute>
                             }
                         />

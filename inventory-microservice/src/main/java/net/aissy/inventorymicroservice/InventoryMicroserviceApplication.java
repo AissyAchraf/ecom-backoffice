@@ -17,9 +17,9 @@ public class InventoryMicroserviceApplication {
     @Bean
     CommandLineRunner commandLineRunner(ProductRepository productRepository) {
         return args -> {
-            productRepository.save(Product.builder().name("Computer").price(22999).quantity(5).build());
-            productRepository.save(Product.builder().name("Printer").price(499).quantity(3).build());
-            productRepository.save(Product.builder().name("Smart Phone").price(12399).quantity(10).build());
+            productRepository.save(Product.builder().id("P01").name("Computer").price(22999).quantity(5).build());
+            productRepository.save(Product.builder().id("P02").name("Printer").price(499).quantity(3).build());
+            productRepository.save(Product.builder().id("P03").name("Smart Phone").price(12399).quantity(10).build());
         };
     }
 
