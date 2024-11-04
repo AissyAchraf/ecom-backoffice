@@ -1,7 +1,7 @@
 # ecom-backoffice
 
 ## 📋 Overview
-This project is a backoffice system for e-commerce designed to handle essential operations such as products & inventory management, customer management, and order management. The goal is to provide seamless control over core business processes to help businesses operate efficiently.
+This project is a microservices-based backoffice system for e-commerce, developed primarily with Spring Boot. It features a robust architecture secured by Keycloak for authentication and authorization, with a Spring Cloud gateway for routing and Eureka for service registration and discovery. The system efficiently manages core operations such as product and inventory management, customer management, and order processing.
 
 ## 🚀 Features
 1. Product & Inventory Management
