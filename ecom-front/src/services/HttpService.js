@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const INVENTORY_MICROSERVICE = process.env.INVENTORY_MICROSERVICE_API_BASE_URL || 'http://localhost:8082';
 const ORDERS_MICROSERVICE = process.env.ORDERS_MICROSERVICE_API_BASE_URL || 'http://localhost:8083';
+const CUSTOMER_MICROSERVICE = process.env.CUSTOMERS_MICROSERVICE_API_BASE_URL || 'http://localhost:8084';
 
 const _axiosClients = {
     _axiosInventoryClient : axios.create({
@@ -9,6 +10,9 @@ const _axiosClients = {
     }),
     _axiosOrderClient : axios.create({
         baseURL: ORDERS_MICROSERVICE,
+    }),
+    _axiosCustomerClient : axios.create({
+        baseURL: CUSTOMER_MICROSERVICE,
     })
 }
 
@@ -36,6 +40,7 @@ const HttpService = {
     configureHttpClient,
     getInventoryClient: () => _axiosClients._axiosInventoryClient,
     getOrderClient: () => _axiosClients._axiosOrderClient,
+    getCustomerClient: () => _axiosClients._axiosCustomerClient ,
 };
 
 export default HttpService;

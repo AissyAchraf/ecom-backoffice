@@ -6,6 +6,7 @@ import Products from './components/products';
 import ProtectedRoute from "./context/ProtectedRoute";
 import Unauthorized from "./components/unauthorized";
 import Orders from "./components/orders";
+import Customers from "./components/customers";
 
 function App() {
 
@@ -29,6 +30,14 @@ function App() {
                             element={
                                 <ProtectedRoute requiredRoles={['USER']}>
                                     <Orders />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/customers"
+                            element={
+                                <ProtectedRoute requiredRoles={['USER']}>
+                                    <Customers />
                                 </ProtectedRoute>
                             }
                         />
